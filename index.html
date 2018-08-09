@@ -1,49 +1,30 @@
 <!DOCTYPE html>
 
-<head>
-  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js"></script>  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css" rel="stylesheet" />  <style>
+<html>
+  <head>
+    <meta charset='utf-8' />
+      <title>Display a map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js'></script>
+      <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' rel='stylesheet' />
+  <style>
     body { margin:0; padding:0; }
     #map { position:absolute; top:0; bottom:0; width:100%; }
   </style>
 </head>
-
 <body>
-  <div id="map"></div>
-
-  <script>
-mapboxgl.accessToken = "pk.eyJ1IjoicmFuZGFsbHdlYnN0ZXIiLCJhIjoiY2praXBmcXh1MTdhNTNwbGV3NGZ6c282ZCJ9.F8vN_o4X-QvgG8OdySLhew";
-
-/* Map: This represents the map on the page. */
-var map = new mapboxgl.Map({
-  container: "map",
-  style: "mapbox://styles/mapbox/light-v9",
-  zoom:5.5,
-  center: [-78.37068,38.32227]
+ 
+  <div id='map'></div>
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoicmFuZGFsbHdlYnN0ZXIiLCJhIjoiY2praXBmcXh1MTdhNTNwbGV3NGZ6c282ZCJ9.F8vN_o4X-QvgG8OdySLhew';
+  const map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/randallwebster/cjkisa6103vjd2qml9ia1lm5x',
+  center: [-84.150104, 42.243945],
+  zoom: 10.0
 });
-
-map.on("load", function () {
-  /* Image: An image is loaded and added to the map. */
-  map.loadImage("https://i.imgur.com/MK4NUzI.png", function(error, image) {
-      if (error) throw error;
-      map.addImage("custom-marker", image);
-      /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
-      map.addLayer({
-        id: "markers",
-        type: "symbol",
-        /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
-        source: {
-          type: "geojson",
-          data: {
-            type: "FeatureCollection",
-            features:[{"type":"Feature","geometry":{"type":"Point","coordinates":[-80.14336571519685,37.19251945086842]}}]}
-        },
-        layout: {
-          "icon-image": "custom-marker",
-        }
-      });
-    });
-});
-  </script>
-
+  
+</script>
+ 
 </body>
 </html>
