@@ -32,7 +32,20 @@
       style: 'mapbox://styles/randallwebster/cjkisa6103vjd2qml9ia1lm5x',
       center: [-84.150104, 42.243945],
       zoom: 10.0
+      
     });
+    var nav = new mapboxgl.NavigationControl();
+   map.addControl(nav, 'top-left');
+   var scale = new mapboxgl.ScaleControl({
+    maxWidth: 80,
+    unit: 'imperial'
+});
+map.addControl(scale);
+scale.setUnit('imperial');
+new FullscreenControl()
+map.addControl(new mapboxgl.FullscreenControl());
+
+
   </script>
 
 </body>
