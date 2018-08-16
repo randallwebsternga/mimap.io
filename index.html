@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset='utf-8' />
   <title>Display a map</title>
@@ -8,46 +7,22 @@
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' rel='stylesheet' />
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
-
-    #map {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 100%;
-    }
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
   </style>
 </head>
-
 <body>
 
-  <div id='map'></div>
-  <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoicmFuZGFsbHdlYnN0ZXIiLCJhIjoiY2praXBmcXh1MTdhNTNwbGV3NGZ6c282ZCJ9.F8vN_o4X-QvgG8OdySLhew';
-    const map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/randallwebster/cjkisa6103vjd2qml9ia1lm5x',
-      center: [-84.150104, 42.243945],
-      zoom: 10.0
-      
-    });
-    var nav = new mapboxgl.NavigationControl();
-   map.addControl(nav, 'top-left');
-   var scale = new mapboxgl.ScaleControl({
-    maxWidth: 80,
-    unit: 'imperial'
+<div id='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoicmFuZGFsbHdlYnN0ZXIiLCJhIjoiY2praXBmcXh1MTdhNTNwbGV3NGZ6c282ZCJ9.F8vN_o4X-QvgG8OdySLhew';
+const map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/randallwebster/cjkisa6103vjd2qml9ia1lm5x',
+  center: [-83.556748, 42.217747],
+  zoom: 10.3
 });
-map.addControl(scale);
-scale.setUnit('imperial');
-new FullscreenControl()
-map.addControl(new mapboxgl.FullscreenControl());
-
-
-  </script>
+</script>
 
 </body>
-
 </html>
